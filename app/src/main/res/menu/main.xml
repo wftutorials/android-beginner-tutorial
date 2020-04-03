@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_battery"
+        android:orderInCategory="99"
+        android:title="Battery"
+        android:icon="@drawable/ic_battery_30_white_24dp"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_one"
+        android:orderInCategory="99"
+        android:title="One"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_two"
+        android:orderInCategory="99"
+        android:title="Two"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_three"
+        android:orderInCategory="99"
+        android:title="Three"
+        app:showAsAction="never" />
+
+</menu>
