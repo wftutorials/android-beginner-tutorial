@@ -928,3 +928,106 @@ public void showDialog(){
 You can see the results here.
 
 [dialog_on_click_event.gif]
+
+## Creating a simple list
+
+Lets see how we can create a simple list in android. First we create a new activity called
+`ListActivity.java`. The in our `activity_list.xml` we add our listview.
+
+```html
+<ListView
+    android:id="@+id/list"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+</ListView>
+```
+
+The `ListView` element is shown above. Now lets add data to our listview. First in our
+`ListActivity` we initialize our `ListView`.
+
+```java
+ListView listView  = findViewById(R.id.list);
+```
+
+Then we create a string array. This will be displayed in our ListView.
+
+```java
+String[] values = new String[] {
+        "My list element 1",
+        "My list element 2",
+        "My list element 3",
+        "My list element 4",
+        "My list element 5",
+        "My list element 6",
+        "My list element 7",
+        "My list element 8"
+};
+```
+
+Now we need an adapter to attach to our listview. We do this below.
+
+```java
+ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_list_item_1, android.R.id.text1, values);
+```
+
+The array adapter type is `String`. It uses a default layout called `android.R.layout.simple_list_item_1`.
+we use the `values` from the `String[]` we created earlier.
+
+Now we set the adapter.
+
+```java
+listView.setAdapter(adapter);
+```
+
+Thats is it. We now have create a listview with list items. Listviews can scroll. Add as many items
+as you like. You can see the results below.
+
+[creating_list_view.png]
+
+### Click events on listview
+
+We can register a click event listener on our listview items. Lets see how.
+
+
+```java
+listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view,
+                                int position, long id) {
+
+        }
+
+    });
+```
+
+We use the `setOnItemClickListener` to get the click event on every list item. For some output
+we add some code to create a toast.
+
+```java
+listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view,
+                            int position, long id) {
+        int itemPosition = position;
+        String  itemValue    = (String) listView.getItemAtPosition(position);
+        Toast.makeText(getApplicationContext(),
+                "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+                .show();
+
+    }
+
+});
+```
+
+The result is shown below.
+
+[onclick_list_items.gif]
+
+So now we can get click events when using our list view. List view can get really complete.
+This is a simple start.
+
+## Conclusion
+
+Here ends our introduction int android for beginners. We learnt alot and there is much more to learn.
+Leave comments below if you have more questions. Thanks for reading.

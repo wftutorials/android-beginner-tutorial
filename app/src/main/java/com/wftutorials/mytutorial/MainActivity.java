@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     TextView tv;
-    Button btn, btn1;
+    Button btn, btn1, btn2;
     EditText ed;
     ImageView iv;
 
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         tv = findViewById(R.id.textview);
         btn = findViewById(R.id.button);
         btn1 = findViewById(R.id.button1);
+        btn2 = findViewById(R.id.button2);
         ed = findViewById(R.id.editText);
         iv = findViewById(R.id.imageView);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 iv.setImageDrawable(getResources().getDrawable(R.drawable.cover));
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(intent);
             }
         });
         tv.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if( id == R.id.action_three){
-
+            Intent intent = new Intent(MainActivity.this, ListActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
